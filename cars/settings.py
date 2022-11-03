@@ -29,8 +29,10 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# Здесь все установленные приложения, необходимо добавлять самому
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',#ДОБАВИЛ смотри в apps.py
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -103,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -121,3 +123,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+#добавили папку куда будут сохранятся медиа
+MEDIA_URL = '/cars_media/' 
+#значение в media_root(папки media) желательно не должно быть такимже как и в media_url, для этого меняем на cars_media
+# Что теперь происходит. Если создаётся новое событие или изображение ImageField. Мы переходим name-root/media - 
+# внутри будет создаваться event_images папка (писали в mpdels upload to='event_images') - и потом изображение будет помещено туда
+# То есть если мы хотим получить доступ к этому изображению, мы должны укахать имя сайта http://127.0.0.1:8000/media/название изображения

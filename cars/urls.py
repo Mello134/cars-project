@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+#импортировали сеттингс для того чтобы было видн media url and root
+from django.conf.urls.static import static
+#тоже добавили
+#Эти строчки кода используются для управления любыми медиафайлами включая видео
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
