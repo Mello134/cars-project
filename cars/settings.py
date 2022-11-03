@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'cars.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',#поменяли на postgresql
+        'NAME': 'carsdb',#поменяли на carsdb
+        'USER': 'postgres',#добавили это имя пользователя бд
+        'PASSWORD': 'blog1234',#пароль пользователя бд
+        'HOST': '127.0.0.1',#либо просто'localhost'
+        'PORT': '5432',#добавили это стандартный порт db
     }
 }
 
