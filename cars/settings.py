@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Здесь все установленные приложения, необходимо добавлять самому
 
 INSTALLED_APPS = [
+    'blog.apps.BlogConfig',#ДОБАВИЛ смотри в apps.py
     'home.apps.HomeConfig',#ДОБАВИЛ смотри в apps.py
     'django.contrib.admin',
     'django.contrib.auth',
