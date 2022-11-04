@@ -20,7 +20,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 #тоже добавили
 #Эти строчки кода используются для управления любыми медиафайлами включая видео
+import home.views
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),     
+    path('', home.views.home, name='home'),#в home/views.py - функция home, применили имя home
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
